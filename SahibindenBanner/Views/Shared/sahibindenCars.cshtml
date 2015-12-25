@@ -1,0 +1,39 @@
+﻿@model List<DAL.SahibindenCars>
+@{
+    int rowCount = 0;    
+}
+<table border="1" width="500px" style="horiz-align:left;">
+    @foreach (var item in Model)
+    {
+        if (rowCount % 2 == 0)
+        {
+            @:<tr>
+        }
+        <td style="vertical-align:top; padding:10px" width="20%;">
+            <table>
+                <tr>
+                    <td style="vertical-align: top" colspan="2">
+                        <div><font size="1"><b> @item.Title</b></font></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding:10px; vertical-align: top;" width="10%">
+                        <img src="@item.ImageUrl" />
+                    </td>
+                    <td style="vertical-align: top;" width="90%">
+
+                        <div><h4><b><font color="red">@item.Price</font></b></h4></div>
+                        <div><font>@item.Year Model</font></div>
+                        <div><font>@item.Km Km'de</font></div>
+                        <div><font>@item.Place</font></div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        if (rowCount % 2 == 1)
+        {
+            @:</tr>
+        }
+        rowCount++;
+    }
+</table>
